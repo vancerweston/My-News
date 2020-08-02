@@ -1,36 +1,43 @@
 <template>
-  <div class="cards-container">
-    <div class="search-bar">
-      <input type="text" placeholder="Search By Article Name" v-model="search"/>
-    </div>
-    <template v-for="article in filteredArticles">
-      <div class="article" :key="article.publishedAt">
-        <div class="pic">
-          <a v-bind:href="article.url" target="_blank">
-            <img v-bind:src="article.urlToImage" alt="No Picture Avaliable"/>
-          </a>
-        </div>
-        <div class="data">
-          <div class="article-title-desc">
-            <h2>
-              <a v-bind:href="article.url" target="_blank">{{
-                article.title
-              }}</a>
-            </h2>
-            <h4>{{ article.description }}</h4>
-          </div>
-          <div class="author">
-            <h5>Author: {{ article.author }}</h5>
-          </div>
-          <div class="publish-date">
-            <h5>Published On: {{ article.publishedAt | dobFilter }}</h5>
-          </div>
-          <div class="content">
-            <p>{{ article.content }}</p>
-          </div>
-        </div>
+  <div class="home">
+    <div class="cards-container">
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Search By Article Name"
+          v-model="search"
+        />
       </div>
-    </template>
+      <template v-for="article in filteredArticles">
+        <div class="article" :key="article.publishedAt">
+          <div class="pic">
+            <a v-bind:href="article.url" target="_blank">
+              <img v-bind:src="article.urlToImage" alt="No Picture Avaliable" />
+            </a>
+          </div>
+          <div class="data">
+            <div class="article-title-desc">
+              <h2>
+                <a v-bind:href="article.url" target="_blank">{{
+                  article.title
+                }}</a>
+              </h2>
+              <h4>{{ article.description }}</h4>
+            </div>
+            <div class="author">
+              <h5>Author: {{ article.author }}</h5>
+            </div>
+            <div class="publish-date">
+              <h5>Published On: {{ article.publishedAt | dobFilter }}</h5>
+            </div>
+            <div class="content">
+              <p>{{ article.content }}</p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+    <footer>Copyright Vance Weston 2020 | Vue News</footer>
   </div>
 </template>
 
@@ -40,7 +47,8 @@ export default {
   data() {
     return {
       articles: [],
-      search: ""
+      search: "",
+      button: String,
     };
   },
   methods: {
@@ -62,11 +70,11 @@ export default {
       const options = {
         year: "numeric",
         month: "long",
-        day: "numeric"
+        day: "numeric",
       };
       const date = new Date(value);
       return date.toLocaleDateString("en-US", options);
-    }
+    },
   },
   computed: {
     filteredArticles() {
@@ -91,13 +99,16 @@ export default {
 .search-bar {
   grid-row: 1;
   grid-column: 1/4;
+  margin: auto;
+  width: 100%;
+  max-width: 800px;
 }
 .data {
   padding: 25px;
 }
 input {
   width: 100%;
-  max-width: 300px;
+  max-width: 800px;
   padding: 8px 15px;
   background: rgba(50, 50, 50, 0.2);
   border: 0px solid #dbdbdb;
@@ -153,4 +164,13 @@ img {
   padding: 5px;
   text-indent: 15px;
 }
+footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 7px;
+  height: 35px;
+  background-color: #333;
+  color: white;
+}
+
 </style>
