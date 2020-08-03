@@ -19,7 +19,7 @@ body {
   background-color: lightgrey;
 }
 .navBar {
-  background-color: #333;
+  background-color: white;
   color: white;
   padding: 10px 16px;
   text-decoration: none;
