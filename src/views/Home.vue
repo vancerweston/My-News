@@ -75,7 +75,7 @@ export default {
   data() {
     return {
       articles: [],
-      search: "",
+      search: ""
     };
   },
   methods: {
@@ -83,8 +83,8 @@ export default {
       let b =
         "http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=cd9551e111db43b695d86bbc339c2e32";
       return fetch(b)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           this.articles = json.articles;
         });
     },
@@ -92,8 +92,8 @@ export default {
       let e =
         "http://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=cd9551e111db43b695d86bbc339c2e32";
       return fetch(e)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           this.articles = json.articles;
         });
     },
@@ -101,8 +101,8 @@ export default {
       let h =
         "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=cd9551e111db43b695d86bbc339c2e32";
       return fetch(h)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           this.articles = json.articles;
         });
     },
@@ -110,8 +110,8 @@ export default {
       let sc =
         "http://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=cd9551e111db43b695d86bbc339c2e32";
       return fetch(sc)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           this.articles = json.articles;
         });
     },
@@ -119,8 +119,8 @@ export default {
       let sp =
         "http://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=cd9551e111db43b695d86bbc339c2e32";
       return fetch(sp)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           this.articles = json.articles;
         });
     },
@@ -128,8 +128,8 @@ export default {
       let t =
         "http://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=cd9551e111db43b695d86bbc339c2e32";
       return fetch(t)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           this.articles = json.articles;
         });
     },
@@ -140,11 +140,11 @@ export default {
       let url =
         "http://newsapi.org/v2/top-headlines?country=us&apiKey=cd9551e111db43b695d86bbc339c2e32";
       return fetch(url)
-        .then((response) => response.json())
-        .then((json) => {
+        .then(response => response.json())
+        .then(json => {
           this.articles = json.articles;
         });
-    },
+    }
   },
   created() {
     this.getArticles();
@@ -154,21 +154,21 @@ export default {
       const options = {
         year: "numeric",
         month: "long",
-        day: "numeric",
+        day: "numeric"
       };
       const date = new Date(value);
       return date.toLocaleDateString("en-US", options);
-    },
+    }
   },
   computed: {
     filteredArticles() {
-      return this.articles.filter((article) => {
+      return this.articles.filter(article => {
         const title = article.title;
         const s = this.search.toLowerCase();
         return title.toLowerCase().includes(s);
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -323,7 +323,7 @@ footer {
     width: 100%;
   }
   .data {
-  padding: 25px;
+    padding: 25px;
   }
   .buttons {
     display: flex;

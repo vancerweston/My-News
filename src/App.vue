@@ -2,7 +2,7 @@
   <div id="app">
     <div class="navBar">
       <div class="title">
-        <img src="../src/assets/logo.png" alt="">
+        <img src="../src/assets/logo.png" alt="" />
       </div>
     </div>
     <router-view />
@@ -29,5 +29,3 @@ img {
   height: 100px;
 }
 </style>
-
-
